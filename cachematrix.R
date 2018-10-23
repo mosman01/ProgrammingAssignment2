@@ -1,10 +1,10 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## creates a special Matrix
+##Function that creates a special Matrix that caches its invers
 
 makeCacheMatrix <- function(x = matrix()) {
-
+#initialize the cache with NULL value
   inverse <- NULL
   set <- function(y) {
     x <<- y
@@ -21,6 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## calculates the inverse of the special "Matrix" created with the above function
+#Matrix must be square to invert it. 
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -30,7 +31,8 @@ cacheSolve <- function(x, ...) {
     return(inverse)
   }
   dat <- x$get()
-  inverse <- solve(dat, ...)
+  #Solve Matrix and return its inverse
+  inverse <- solve(dat, ...) 
   x$setInverse(inverse)
   inverse
 }
